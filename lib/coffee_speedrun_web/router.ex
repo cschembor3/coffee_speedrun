@@ -17,7 +17,7 @@ defmodule CoffeeSpeedrunWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/runners", RunnerController
+    resources "/leaderboard", RunnerController
   end
 
   # Other scopes may use custom stacks.

@@ -1,4 +1,4 @@
-<h1>Listing Runners</h1>
+<h1>Leaderboard</h1>
 
 <table>
   <thead>
@@ -17,12 +17,9 @@
 
       <td>
         <span><%= link "Show", to: Routes.runner_path(@conn, :show, runner) %></span>
-        <span><%= link "Edit", to: Routes.runner_path(@conn, :edit, runner) %></span>
         <span><%= link "Delete", to: Routes.runner_path(@conn, :delete, runner), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Runner", to: Routes.runner_path(@conn, :new) %></span>
