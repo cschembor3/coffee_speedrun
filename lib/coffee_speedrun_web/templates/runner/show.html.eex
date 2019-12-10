@@ -1,0 +1,18 @@
+<h1>Show Runner</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @runner.name %>
+  </li>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @runner.time %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.runner_path(@conn, :edit, @runner) %></span>
+<span><%= link "Back", to: Routes.runner_path(@conn, :index) %></span>

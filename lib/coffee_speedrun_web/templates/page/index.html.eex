@@ -1,0 +1,6 @@
+<section class="phx-hero">
+  <h2>Speedrun</h2>
+  <%= text_input :runner, :name, value: "Runner name" %>
+  <button class="phx-button">Start</button>
+  <button class="phx-button">Stop</button>
+</section>

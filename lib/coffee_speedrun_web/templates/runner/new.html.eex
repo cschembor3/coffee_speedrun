@@ -1,0 +1,5 @@
+<h1>New Runner</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.runner_path(@conn, :create)) %>
+
+<span><%= link "Back", to: Routes.runner_path(@conn, :index) %></span>
