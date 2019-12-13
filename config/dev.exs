@@ -61,7 +61,7 @@ config :coffee_speedrun, CoffeeSpeedrunWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/coffee_speedrun_web/{live,views}/.*(ex)$",
-      ~r"lib/coffee_speedrun_web/templates/.*(eex)$"
+      ~r"lib/coffee_speedrun_web/templates/.*(eex|drab)$"
     ]
   ]
 

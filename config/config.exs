@@ -17,6 +17,18 @@ config :coffee_speedrun, CoffeeSpeedrunWeb.Endpoint,
   render_errors: [view: CoffeeSpeedrunWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: CoffeeSpeedrun.PubSub, adapter: Phoenix.PubSub.PG2]
 
+# Configures Drab
+config :drab, CoffeeSpeedrunWeb.Endpoint,
+  otp_app: :coffee_speedrun
+
+# Configures default Drab file extension
+config :phoenix, :template_engines,
+  drab: Drab.Live.Engine
+
+# Configures Drab for webpack
+config :drab, CoffeeSpeedrunWeb.Endpoint,
+  js_socket_constructor: "window.__socket"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
