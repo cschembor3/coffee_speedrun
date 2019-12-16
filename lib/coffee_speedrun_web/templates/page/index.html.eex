@@ -1,7 +1,7 @@
 <section class="phx-hero">
   <h2>Speedrun</h2>
   <%= text_input :runner, :name, value: "Runner name" %>
-  <div class="test_div" id="stopwatch_div"></div>
+  <div class="test_div" id="stopwatch_div">00:00:00</div>
   <button class="phx-button" 
     drab-click="CoffeeSpeedrunWeb.PageCommander.start_stopwatch">
     Start
