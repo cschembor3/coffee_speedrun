@@ -2,7 +2,7 @@
   <h2>Speedrun</h2>
   <input type="text" id="name" value="Runner name"></input>
   <label id="time">00:00</label>
-  <button class="phx-button" onclick="start_timer()">Start</button>
+  <button class="phx-button" id="start_button" onclick="start_timer()">Start</button>
   <button class="phx-button" onclick="submit_time()">Stop</button>
 </section>
 
@@ -10,6 +10,7 @@
 
 <script type="text/javascript">
   function start_timer() {
+    $("#start_button").attr('disabled', 'disabled');
     increment_timer(
       {
         minutes: 0,
@@ -18,11 +19,13 @@
     );
   }
 
-  async function submit_time() {
+  function submit_time() {
     $.post(
-      "/runners", {runner:{ name: $("#name").val(), time: "00:" + $("#time").text()}});
-
-    window.location.replace("http://localhost:4000/runners");
+      "/runners",
+      {runner:{ name: $("#name").val(), time: "00:" + $("#time").text()}},
+      function(result) {
+        window.location.replace("http://localhost:4000/runners");
+      });
   }
 
   async function increment_timer(time) {
