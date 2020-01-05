@@ -1,5 +1,55 @@
-<h1>New Runner</h1>
+<section class="phx-hero">
+  <h2>Speedrun</h2>
+  <input type="text" id="name" value="Runner name"></input>
+  <label id="time">00:00</label>
+  <button class="phx-button" onclick="start_timer()">Start</button>
+  <button class="phx-button" onclick="submit_time()">Stop</button>
+</section>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.runner_path(@conn, :create)) %>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-<span><%= link "Back", to: Routes.runner_path(@conn, :index) %></span>
+<script type="text/javascript">
+  function start_timer() {
+    increment_timer(
+      {
+        minutes: 0,
+        seconds: 0
+      }
+    );
+  }
+
+  async function submit_time() {
+    $.post(
+      "/runners", {runner:{ name: "Connor", time: "00:10:00"}});
+  }
+
+  async function increment_timer(time) {
+    format_timer(time);
+    await sleep(1000);
+    time.seconds = time.seconds + 1;
+    increment_timer(time);
+  }
+
+  function format_timer(time) {
+    if (time.seconds == 60) {
+      time.seconds = 0;
+      time.minutes++;
+    }
+
+    let formatted_mins = time.minutes > 9
+      ? `${time.minutes}`
+      : `0${time.minutes}`;
+
+    let formatted_secs = time.seconds > 9
+      ? `${time.seconds}`
+      : `0${time.seconds}`;
+
+
+    $("#time").text(`${formatted_mins}:${formatted_secs}`);
+  }
+
+  function sleep(time_in_ms) {
+    return new Promise(resolve => setTimeout(resolve, time_in_ms));
+  }
+
+</script>

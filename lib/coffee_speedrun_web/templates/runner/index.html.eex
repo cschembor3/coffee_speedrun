@@ -1,25 +1,23 @@
-<h1>Leaderboard</h1>
+<h1>Show Runner</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Time</th>
+<table style="width:100%">
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for runner <- @runners do %>
+  <tr>
+    <th>Runner Name</th>
+    <th>Time</th>
+  </tr>
+  <%= for runner <- Enum.sort_by(@runners, fn t -> t.time end) do %>
+
     <tr>
-      <td><%= runner.name %></td>
-      <td><%= runner.time %></td>
+      <td>
+        <%= runner.name %>
+      </td>
 
       <td>
-        <span><%= link "Show", to: Routes.runner_path(@conn, :show, runner) %></span>
-        <span><%= link "Delete", to: Routes.runner_path(@conn, :delete, runner), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <%= runner.time %>
       </td>
     </tr>
-<% end %>
-  </tbody>
+
+  <% end %>
+
 </table>

@@ -120,6 +120,11 @@ header nav a {
   display: block;
 }
 
+.home_button a {
+  text-decoration: none;
+  color: rgb(116, 83, 76);
+}
+
 @media (min-width: 40.0rem) { /* Small devices (landscape phones, 576px and up) */
   header section {
     flex-direction: row;

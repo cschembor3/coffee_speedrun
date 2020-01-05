@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CoffeeSpeedrun</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/000000/coffee.png"/>
   </head>
   <body>
     <header>
       <section class="container">
         <nav class="nav">
-          <a href="/leaderboard">Leaderboard</a>
+          <a href="/runners">Leaderboard</a>
         </nav>
-        <h1>Coffee Speedrun</h1>
+        <div class="home_button">
+          <a href="/">
+            <h1>Coffee Speedrun</h1>
+          </a>
+        </div>
       </section>
     </header>
     <main role="main" class="container">

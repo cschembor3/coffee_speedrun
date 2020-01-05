@@ -19,7 +19,8 @@ defmodule CoffeeSpeedrunWeb.RunnerController do
       {:ok, runner} ->
         conn
         |> put_flash(:info, "Runner created successfully.")
-        |> redirect(to: Routes.runner_path(conn, :show, runner))
+        #|> redirect(to: Routes.runner_path(conn, :index))
+        |> render("index.html", runners: Users.list_runners())
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

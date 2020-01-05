@@ -1,4 +1,4 @@
-defmodule CoffeeSpeedrunWeb.PageCommander do
+defmodule CoffeeSpeedrunWeb.RunnerCommander do
   use Drab.Commander
   use Drab.Commander, modules: [Drab.Query, Drab.Modal, Drab.Live, Drab.Core]
 
@@ -6,9 +6,8 @@ defmodule CoffeeSpeedrunWeb.PageCommander do
     Process.register(spawn(fn -> increment_timer(socket, ~T[00:00:00]) end), :testing)
   end
 
-  defhandler stop_stopwatch(socket, sender) do
-    IO.inspect(:testing)
-    send(:testing, :cancel_timer)
+  defhandler stop_stopwatch(socket, _sender, optional) do
+    send(:testing, {:cancel_timer, optional})
   end
 
   def increment_timer(socket, time) do
@@ -16,8 +15,9 @@ defmodule CoffeeSpeedrunWeb.PageCommander do
     :timer.sleep(1 * 1000)
 
     receive do
-      :cancel_timer ->
+      {:cancel_timer, name} ->
         socket |> update(:text, set: "how do you do", on: "#stopwatch_div")
+        #Users.create_runner({name: name, time: time})
     after
       0 ->
         increment_timer(socket, Time.add(time, 1))
@@ -36,5 +36,9 @@ defmodule CoffeeSpeedrunWeb.PageCommander do
       time.second,
       {0, 0}
     )
+  end
+
+  def terminate(reason, state) do
+    true
   end
 end
