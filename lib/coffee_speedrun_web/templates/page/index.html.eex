@@ -24,7 +24,7 @@
       "/runners",
       {runner:{ name: $("#name").val(), time: "00:" + $("#time").text()}},
       function(result) {
-        window.location.replace("http://localhost:4000/runners");
+        window.location.replace("/runners");
       });
   }
 
