@@ -3,12 +3,17 @@
 <table style="width:100%">
 
   <tr>
+    <th>Rank</th>
     <th>Runner Name</th>
     <th>Time</th>
   </tr>
-  <%= for runner <- Enum.sort_by(@runners, fn t -> t.time end) do %>
+  <%= for {runner, index} <- Enum.with_index(Enum.sort_by(@runners, fn t -> t.time end)) do %>
 
     <tr>
+      <td>
+        <%= index + 1 %>
+      </td>
+
       <td>
         <%= runner.name %>
       </td>
