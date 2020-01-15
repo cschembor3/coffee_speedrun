@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CoffeeSpeedrun</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/000000/coffee.png"/>
+    <link rel="icon" type="image/png" href= "<%= Routes.static_path(@conn, "/images/icons8-hot-coffee-64.png") %>" />
   </head>
   <body>
     <header>
@@ -31,6 +31,4 @@
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-
-    
 </html>
