@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/homepage.css">
+    </header>
+
+    <body>
+        <div class="speedrun_options_container">
+            <div class="run_type" id="coffee">
+                <a href="/coffee"><img src="images/coffee_icon.png" alt="coffee_icon"></a>
+            </div>
+            <div class="run_type" id="cookie">
+                <a href="/cookie"><img src="images/cookie_icon.png" alt="cookie_icon"></a>
+            </div>
+        </div>
+    </body>
+</html>

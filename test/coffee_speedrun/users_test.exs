@@ -63,4 +63,65 @@ defmodule CoffeeSpeedrun.UsersTest do
       assert %Ecto.Changeset{} = Users.change_runner(runner)
     end
   end
+
+  describe "cookie_runners" do
+    alias CoffeeSpeedrun.Users.CookieRunner
+
+    @valid_attrs %{name: "some name", time: "some time"}
+    @update_attrs %{name: "some updated name", time: "some updated time"}
+    @invalid_attrs %{name: nil, time: nil}
+
+    def cookie_runner_fixture(attrs \\ %{}) do
+      {:ok, cookie_runner} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Users.create_cookie_runner()
+
+      cookie_runner
+    end
+
+    test "list_cookie_runners/0 returns all cookie_runners" do
+      cookie_runner = cookie_runner_fixture()
+      assert Users.list_cookie_runners() == [cookie_runner]
+    end
+
+    test "get_cookie_runner!/1 returns the cookie_runner with given id" do
+      cookie_runner = cookie_runner_fixture()
+      assert Users.get_cookie_runner!(cookie_runner.id) == cookie_runner
+    end
+
+    test "create_cookie_runner/1 with valid data creates a cookie_runner" do
+      assert {:ok, %CookieRunner{} = cookie_runner} = Users.create_cookie_runner(@valid_attrs)
+      assert cookie_runner.name == "some name"
+      assert cookie_runner.time == "some time"
+    end
+
+    test "create_cookie_runner/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Users.create_cookie_runner(@invalid_attrs)
+    end
+
+    test "update_cookie_runner/2 with valid data updates the cookie_runner" do
+      cookie_runner = cookie_runner_fixture()
+      assert {:ok, %CookieRunner{} = cookie_runner} = Users.update_cookie_runner(cookie_runner, @update_attrs)
+      assert cookie_runner.name == "some updated name"
+      assert cookie_runner.time == "some updated time"
+    end
+
+    test "update_cookie_runner/2 with invalid data returns error changeset" do
+      cookie_runner = cookie_runner_fixture()
+      assert {:error, %Ecto.Changeset{}} = Users.update_cookie_runner(cookie_runner, @invalid_attrs)
+      assert cookie_runner == Users.get_cookie_runner!(cookie_runner.id)
+    end
+
+    test "delete_cookie_runner/1 deletes the cookie_runner" do
+      cookie_runner = cookie_runner_fixture()
+      assert {:ok, %CookieRunner{}} = Users.delete_cookie_runner(cookie_runner)
+      assert_raise Ecto.NoResultsError, fn -> Users.get_cookie_runner!(cookie_runner.id) end
+    end
+
+    test "change_cookie_runner/1 returns a cookie_runner changeset" do
+      cookie_runner = cookie_runner_fixture()
+      assert %Ecto.Changeset{} = Users.change_cookie_runner(cookie_runner)
+    end
+  end
 end

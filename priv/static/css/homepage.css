@@ -1,0 +1,21 @@
+body {
+    background-color: burlywood;
+}
+
+.speedrun_options_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+    padding: 5px;
+    background-color: navajowhite;
+}
+
+.run_type {
+    margin: 5px;
+}
+
+#cookie {
+    margin-top: 10px;
+}

@@ -3,7 +3,13 @@
   <input type="text" id="name" value="Runner name"></input>
   <label id="time">00:00</label>
   <button class="phx-button" id="start_button" onclick="start_timer()">Start</button>
-  <button class="phx-button" onclick="submit_time()">Stop</button>
+  <button class="phx-button" onclick="
+    <%= if assigns[:run_type] == "coffee" do %>
+      submit_coffee_time()
+    <% else %>
+      submit_cookie_time()
+    <% end %>
+    ">Stop</button>
 </section>
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -19,12 +25,21 @@
     );
   }
 
-  function submit_time() {
+  function submit_coffee_time() {
     $.post(
-      "/runners",
+      "/coffee/runners",
       {runner:{ name: $("#name").val(), time: "00:" + $("#time").text()}},
       function(result) {
-        window.location.replace("/runners");
+        window.location.replace("/coffee/runners");
+      });
+  }
+
+  function submit_cookie_time() {
+    $.post(
+      "/cookie/runners",
+      {cookie_runner:{ name: $("#name").val(), time: "00:" + $("#time").text()}},
+      function(result) {
+        window.location.replace("/cookie/runners");
       });
   }
 

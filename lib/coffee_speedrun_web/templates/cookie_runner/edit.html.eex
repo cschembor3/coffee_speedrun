@@ -1,0 +1,5 @@
+<h1>Edit Cookie runner</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.cookie_runner_path(@conn, :update, @cookie_runner)) %>
+
+<span><%= link "Back", to: Routes.cookie_runner_path(@conn, :index) %></span>

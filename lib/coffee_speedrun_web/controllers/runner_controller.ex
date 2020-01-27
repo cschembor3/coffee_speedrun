@@ -5,6 +5,7 @@ defmodule CoffeeSpeedrunWeb.RunnerController do
   alias CoffeeSpeedrun.Users.Runner
 
   def index(conn, _params) do
+    conn = assign(conn, :run_type, "coffee")
     runners = Users.list_runners()
     render(conn, "index.html", runners: runners)
   end
@@ -19,7 +20,6 @@ defmodule CoffeeSpeedrunWeb.RunnerController do
       {:ok, runner} ->
         conn
         |> put_flash(:info, "Runner created successfully.")
-        #|> redirect(to: Routes.runner_path(conn, :index))
         |> render("index.html", runners: Users.list_runners())
 
       {:error, %Ecto.Changeset{} = changeset} ->

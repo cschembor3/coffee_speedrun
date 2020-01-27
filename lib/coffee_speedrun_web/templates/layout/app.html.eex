@@ -4,7 +4,11 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CoffeeSpeedrun</title>
+    <% if assigns[:run_type] == "coffee" do %>
+      <title>CoffeeSpeedrun</title>
+    <% else %>
+      <title>CookieSpeedrun</title>
+    <% end %>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link rel="icon" type="image/png" href= "<%= Routes.static_path(@conn, "/images/icons8-hot-coffee-64.png") %>" />
   </head>
@@ -15,13 +19,23 @@
           <ul>
             <li><a href="/about.html">About</a></li>
             <li><a href="/rules.html">Rules</a></li>
-            <li><a href="/runners">Leaderboard</a></li>
+            <li><a href="<%= assigns[:run_type] %>/runners">Leaderboard</a></li>
           </ul>
         </nav>
         <div class="home_button">
-          <a href="/">
-            <h1>Coffee Speedrun</h1>
+          <a href="
+            <%=
+              if assigns[:run_type] == "coffee" do "/coffee"
+              else "/cookie" end
+            %>">
+            <h1>
+              <%= 
+                if assigns[:run_type] == "coffee" do "Coffee"
+                else "Cookie" end
+              %> Speedrun
+            </h1>
           </a>
+          <a href="/homepage.html">Other speedruns</a>
         </div>
       </section>
     </header>
