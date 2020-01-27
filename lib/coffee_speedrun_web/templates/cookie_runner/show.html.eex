@@ -1,0 +1,18 @@
+<h1>Show Cookie runner</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @cookie_runner.name %>
+  </li>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @cookie_runner.time %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.cookie_runner_path(@conn, :edit, @cookie_runner) %></span>
+<span><%= link "Back", to: Routes.cookie_runner_path(@conn, :index) %></span>

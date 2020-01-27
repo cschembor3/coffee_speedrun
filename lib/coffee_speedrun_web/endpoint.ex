@@ -13,7 +13,7 @@ defmodule CoffeeSpeedrunWeb.Endpoint do
     at: "/",
     from: :coffee_speedrun,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt about.html rules.html)
+    only: ~w(css fonts images js favicon.ico robots.txt about.html rules.html homepage.html)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
