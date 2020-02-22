@@ -67,8 +67,8 @@ defmodule CoffeeSpeedrun.UsersTest do
   describe "cookie_runners" do
     alias CoffeeSpeedrun.Users.CookieRunner
 
-    @valid_attrs %{name: "some name", time: "some time"}
-    @update_attrs %{name: "some updated name", time: "some updated time"}
+    @valid_attrs %{name: "some name", time: ~T[14:00:00]}
+    @update_attrs %{name: "some updated name", time: ~T[15:01:01]}
     @invalid_attrs %{name: nil, time: nil}
 
     def cookie_runner_fixture(attrs \\ %{}) do
@@ -93,7 +93,7 @@ defmodule CoffeeSpeedrun.UsersTest do
     test "create_cookie_runner/1 with valid data creates a cookie_runner" do
       assert {:ok, %CookieRunner{} = cookie_runner} = Users.create_cookie_runner(@valid_attrs)
       assert cookie_runner.name == "some name"
-      assert cookie_runner.time == "some time"
+      assert cookie_runner.time == ~T[14:00:00]
     end
 
     test "create_cookie_runner/1 with invalid data returns error changeset" do
@@ -104,7 +104,7 @@ defmodule CoffeeSpeedrun.UsersTest do
       cookie_runner = cookie_runner_fixture()
       assert {:ok, %CookieRunner{} = cookie_runner} = Users.update_cookie_runner(cookie_runner, @update_attrs)
       assert cookie_runner.name == "some updated name"
-      assert cookie_runner.time == "some updated time"
+      assert cookie_runner.time == ~T[15:01:01]
     end
 
     test "update_cookie_runner/2 with invalid data returns error changeset" do
