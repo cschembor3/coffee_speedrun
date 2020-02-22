@@ -1,5 +1,7 @@
 # CoffeeSpeedrun
 
+![Elixir CI](https://github.com/cschembor3/coffee_speedrun/workflows/Elixir%20CI/badge.svg?branch=master)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
