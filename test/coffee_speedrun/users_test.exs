@@ -93,7 +93,11 @@ defmodule CoffeeSpeedrun.UsersTest do
     test "create_cookie_runner/1 with valid data creates a cookie_runner" do
       assert {:ok, %CookieRunner{} = cookie_runner} = Users.create_cookie_runner(@valid_attrs)
       assert cookie_runner.name == "some name"
+<<<<<<< HEAD
       assert cookie_runner.time == ~T[14:00:00]
+=======
+      assert cookie_runner.time == "some time"
+>>>>>>> heroku/master
     end
 
     test "create_cookie_runner/1 with invalid data returns error changeset" do
@@ -104,7 +108,11 @@ defmodule CoffeeSpeedrun.UsersTest do
       cookie_runner = cookie_runner_fixture()
       assert {:ok, %CookieRunner{} = cookie_runner} = Users.update_cookie_runner(cookie_runner, @update_attrs)
       assert cookie_runner.name == "some updated name"
+<<<<<<< HEAD
       assert cookie_runner.time == ~T[15:01:01]
+=======
+      assert cookie_runner.time == "some updated time"
+>>>>>>> heroku/master
     end
 
     test "update_cookie_runner/2 with invalid data returns error changeset" do

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
     <script src="lazysizes.min.js" async></script>
+=======
+>>>>>>> heroku/master
     <header>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/homepage.css">
