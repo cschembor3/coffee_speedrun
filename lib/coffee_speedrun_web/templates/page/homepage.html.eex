@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="lazysizes.min.js" async></script>
     <header>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/homepage.css">
@@ -8,10 +9,10 @@
     <body>
         <div class="speedrun_options_container">
             <div class="run_type" id="coffee">
-                <a href="/coffee"><img src="images/coffee_icon.png" alt="coffee_icon"></a>
+                <a href="/coffee"><img data-src="images/coffee_icon.png" class="lazyload" alt="coffee_icon"></a>
             </div>
             <div class="run_type" id="cookie">
-                <a href="/cookie"><img src="images/cookie_icon.png" alt="cookie_icon"></a>
+                <a href="/cookie"><img data-src="images/cookie_icon.png" class="lazyload" alt="cookie_icon"></a>
             </div>
         </div>
     </body>
